@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "memento"
 include(":app")
+include(":domain-memento")
