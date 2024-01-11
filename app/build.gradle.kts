@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain-memento"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -55,4 +56,9 @@ dependencies {
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
     //Dagger endregion
+
+    //Room region
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.common)
+    //Room endregion
 }

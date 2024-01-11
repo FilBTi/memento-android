@@ -11,8 +11,14 @@ constraintlayout = "2.1.4"
 detekt = "1.22.0"
 dagger = "2.50"
 daggerCompiler = "2.50"
+jetbrainsKotlinJvm = "1.9.22"
+roomRuntime = "2.6.1"
+kotlinx-coroutines-android = "1.7.1"
+kotlinx-coroutines-core = "1.7.1"
+roomKtx = "2.6.1"
 
 [libraries]
+androidx-room-common = { module = "androidx.room:room-common", version.ref = "roomRuntime" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
@@ -24,11 +30,15 @@ util-detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formattin
 util-detektPlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
 [bundles]
 
