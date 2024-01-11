@@ -8,7 +8,7 @@ import com.puroblast.feature_auth.databinding.FragmentAuthBinding
 
 class AuthFragment : Fragment(R.layout.fragment_auth) {
 
-    val binding by viewBinding(FragmentAuthBinding::bind)
+    private val binding by viewBinding(FragmentAuthBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

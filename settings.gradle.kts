@@ -17,3 +17,4 @@ rootProject.name = "memento"
 include(":app")
 include(":domain-memento")
 include(":feature-auth")
+include(":common-resources")
