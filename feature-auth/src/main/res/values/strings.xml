@@ -1,0 +1,11 @@
+<resources>
+    <string name="join_text">Войти</string>
+    <string name="register_text">Зарегистрироваться</string>
+    <string name="email_text">Email</string>
+    <string name="password_text">Пароль</string>
+    <string name="register_underlined_text"><u>Зарегистрироваться</u></string>
+    <string name="join_underlined_text"><u>Войти</u></string>
+    <string name="do_you_have_account_text">Уже есть аккаунт?</string>
+    <string name="dont_you_have_account_text">Нет аккаунта?</string>
+    <string name="memento_logotip">memento_logotip</string>
+</resources>

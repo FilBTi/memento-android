@@ -43,6 +43,8 @@ android {
 
 dependencies {
     implementation(project(":domain-memento"))
+    implementation(project(":feature-auth"))
+    implementation(project(":common-resources"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -61,4 +63,9 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.common)
     //Room endregion
+
+    //Navigation region
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    //Navigation endregion
 }

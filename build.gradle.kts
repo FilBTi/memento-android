@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid) apply false
     alias(libs.plugins.detekt)
     alias(libs.plugins.jetbrainsKotlinJvm) apply false
+    alias(libs.plugins.androidLibrary) apply false
 }
 
 
