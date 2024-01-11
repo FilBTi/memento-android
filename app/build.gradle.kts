@@ -62,4 +62,9 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.common)
     //Room endregion
+
+    //Navigation region
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    //Navigation endregion
 }

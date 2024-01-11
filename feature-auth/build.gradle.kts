@@ -36,4 +36,9 @@ dependencies {
     //ViewBinding region
     implementation(libs.viewbindingpropertydelegate.noreflection)
     //ViewBinding endregion
+
+    //Navigation region
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    //Navigation endregion
 }
