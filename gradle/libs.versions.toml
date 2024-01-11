@@ -16,6 +16,7 @@ roomRuntime = "2.6.1"
 kotlinx-coroutines-android = "1.7.1"
 kotlinx-coroutines-core = "1.7.1"
 roomKtx = "2.6.1"
+viewbindingpropertydelegate-noreflection = "1.5.9"
 
 [libraries]
 androidx-room-common = { module = "androidx.room:room-common", version.ref = "roomRuntime" }
@@ -33,12 +34,15 @@ dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = 
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+viewbindingpropertydelegate-noreflection = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "viewbindingpropertydelegate-noreflection" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
 
 [bundles]
 

@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(project(":domain-memento"))
+    implementation(project(":feature-auth"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
