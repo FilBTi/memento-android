@@ -24,5 +24,16 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
     </androidx.recyclerview.widget.RecyclerView>
+    
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+        android:text="@string/create_text"
+        app:icon="@drawable/add_icon"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        app:iconTint="@color/white"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
