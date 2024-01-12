@@ -45,6 +45,7 @@ dependencies {
     implementation(project(":domain-memento"))
     implementation(project(":feature-auth"))
     implementation(project(":common-resources"))
+    implementation(project(":feature-folders"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

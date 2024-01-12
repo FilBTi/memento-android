@@ -1,4 +1,4 @@
-package com.puroblast.folders_feature
+package com.puroblast.feature_folders
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

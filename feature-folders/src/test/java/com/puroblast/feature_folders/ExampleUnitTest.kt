@@ -1,4 +1,4 @@
-package com.puroblast.folders_feature
+package com.puroblast.feature_folders
 
 import org.junit.Test
 
