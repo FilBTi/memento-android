@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/folders_nav_graph">
+
+    <fragment
+        android:id="@+id/foldersHomeFragment"
+        android:name="com.puroblast.feature_folders.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <deepLink app:uri="android-app://com.puroblast.feature_folders/homeFragment"/>
+
+    </fragment>
 
 </navigation>
