@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.puroblast.domain_memento.model.Question
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface QuestionDao {
@@ -21,4 +22,7 @@ interface QuestionDao {
 
     @Query("SELECT * FROM question WHERE id = :id")
     suspend fun getQuestion(id: Int): Question
+
+    @Query("SELECT * FROM question WHERE id IN(:ids)")
+    suspend fun getNoteQuestions(ids: List<Int>): Flow<List<Question>>
 }

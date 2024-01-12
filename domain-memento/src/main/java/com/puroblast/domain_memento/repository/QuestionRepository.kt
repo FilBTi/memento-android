@@ -2,6 +2,7 @@ package com.puroblast.domain_memento.repository
 
 import com.puroblast.domain_memento.dao.QuestionDao
 import com.puroblast.domain_memento.model.Question
+import kotlinx.coroutines.flow.Flow
 
 class QuestionRepository(private val questionDao: QuestionDao) {
 
@@ -19,5 +20,9 @@ class QuestionRepository(private val questionDao: QuestionDao) {
 
     suspend fun getQuestion(id: Int): Question {
         return questionDao.getQuestion(id)
+    }
+
+    suspend fun getNoteQuestions(ids: List<Int>): Flow<List<Question>> {
+        return questionDao.getNoteQuestions(ids)
     }
 }

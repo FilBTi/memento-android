@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.puroblast.folders_feature"
+    namespace = "com.puroblast.feature_folders"
     compileSdk = 34
 
     defaultConfig {

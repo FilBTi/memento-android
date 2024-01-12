@@ -20,12 +20,9 @@ interface FolderDao {
     @Query("SELECT * FROM folder WHERE id = :id")
     suspend fun getFolder(id: Int): Folder
 
-    @Query("UPDATE folder SET childFoldersIds = :childFolderIds WHERE id = :id")
-    suspend fun updateChildFolders(id: Int, childFolderIds: List<Int>)
-
     @Query("UPDATE folder SET notesIds = :notesIds WHERE id=:id")
     suspend fun updateFolderNotes(id: Int, notesIds: List<Int>)
 
-    @Query("SELECT * FROM folder WHERE id IN(:ids)")
-    fun getFolders(ids: List<Int>): Flow<List<Folder>>
+    @Query("SELECT * FROM folder")
+    fun getFolders(): Flow<List<Folder>>
 }

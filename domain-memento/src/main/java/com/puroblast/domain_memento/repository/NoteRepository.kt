@@ -21,4 +21,8 @@ class NoteRepository(private val noteDao: NoteDao) {
     fun getNotes(ids: List<Int>): Flow<List<Note>> {
         return noteDao.getNotes(ids)
     }
+
+    suspend fun deleteNote(note: Note) {
+        noteDao.deleteNote(note)
+    }
 }
