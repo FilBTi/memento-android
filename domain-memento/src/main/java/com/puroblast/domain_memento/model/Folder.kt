@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Folder(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val name: String,
-    val notesIds: List<Int>
+    val id: Int = 0,
+    val name: String = "",
+    val notesIds: List<Int> = listOf()
 )

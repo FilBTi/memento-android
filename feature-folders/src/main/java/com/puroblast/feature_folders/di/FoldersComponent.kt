@@ -1,6 +1,6 @@
 package com.puroblast.feature_folders.di
 
-import com.puroblast.feature_folders.HomeFragment
+import com.puroblast.feature_folders.ui.HomeFragment
 import dagger.Component
 
 @Component(dependencies = [FoldersDependencies::class])

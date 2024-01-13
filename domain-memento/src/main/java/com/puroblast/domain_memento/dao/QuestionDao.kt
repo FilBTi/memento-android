@@ -24,5 +24,5 @@ interface QuestionDao {
     suspend fun getQuestion(id: Int): Question
 
     @Query("SELECT * FROM question WHERE id IN(:ids)")
-    suspend fun getNoteQuestions(ids: List<Int>): Flow<List<Question>>
+    fun getNoteQuestions(ids: List<Int>): Flow<List<Question>>
 }

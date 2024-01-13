@@ -63,6 +63,7 @@ dependencies {
     //Room region
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.common)
+    kapt("androidx.room:room-compiler:2.6.1")
     //Room endregion
 
     //Navigation region

@@ -22,7 +22,7 @@ class QuestionRepository(private val questionDao: QuestionDao) {
         return questionDao.getQuestion(id)
     }
 
-    suspend fun getNoteQuestions(ids: List<Int>): Flow<List<Question>> {
+    fun getNoteQuestions(ids: List<Int>): Flow<List<Question>> {
         return questionDao.getNoteQuestions(ids)
     }
 }

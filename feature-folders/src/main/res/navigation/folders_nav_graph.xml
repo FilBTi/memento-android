@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/foldersHomeFragment"
-        android:name="com.puroblast.feature_folders.HomeFragment"
+        android:name="com.puroblast.feature_folders.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <deepLink app:uri="android-app://com.puroblast.feature_folders/homeFragment"/>
