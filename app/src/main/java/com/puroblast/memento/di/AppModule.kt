@@ -1,5 +1,6 @@
 package com.puroblast.memento.di
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.puroblast.domain_memento.dao.FolderDao
@@ -15,6 +16,11 @@ import javax.inject.Singleton
 
 @Module
 class AppModule {
+
+    @Provides
+    fun provideContext(application: Application): Context {
+        return application.applicationContext
+    }
 
     @Provides
     @Singleton

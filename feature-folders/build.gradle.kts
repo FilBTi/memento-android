@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    id("kotlin-kapt")
 }
 
 android {
@@ -26,6 +27,7 @@ android {
 
 dependencies {
     implementation(project(":common-resources"))
+    implementation(project(":domain-memento"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -42,4 +44,13 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     //Navigation endregion
+
+    //Coroutines region
+    implementation(libs.kotlinx.coroutines.core)
+    //Coroutines endregion
+
+    //Dagger region
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+    //Dagger endregion
 }
