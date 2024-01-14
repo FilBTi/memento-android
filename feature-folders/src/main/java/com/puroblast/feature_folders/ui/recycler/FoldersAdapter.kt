@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.puroblast.domain_memento.model.Folder
 import com.puroblast.feature_folders.R
 
-class FoldersAdapter : ListAdapter<Folder, FoldersViewHolder>(FoldersDiffUtil()) {
+internal class FoldersAdapter : ListAdapter<Folder, FoldersViewHolder>(FoldersDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoldersViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.folder_item, parent, false)
 

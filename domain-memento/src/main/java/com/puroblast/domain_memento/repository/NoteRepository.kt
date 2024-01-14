@@ -14,11 +14,11 @@ class NoteRepository(private val noteDao: NoteDao) {
         return noteDao.getNote(id)
     }
 
-    suspend fun updateNoteQuestions(id: Int, questionsIds: List<Int>) {
-        noteDao.updateNoteQuestions(id, questionsIds)
+    suspend fun updateNoteQuestions(note: Note) {
+        noteDao.updateNoteQuestions(note)
     }
 
-    fun getNotes(ids: List<Int>): Flow<List<Note>> {
+    fun observeNotes(ids: List<Int>): Flow<List<Note>> {
         return noteDao.getNotes(ids)
     }
 

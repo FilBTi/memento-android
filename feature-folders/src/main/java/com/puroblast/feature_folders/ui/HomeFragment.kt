@@ -57,7 +57,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         binding.addButton.setOnClickListener {
-            foldersViewModel.addFolder(Folder())
+            foldersViewModel.addFolder(Folder(0, "asdasd", emptyList()))
         }
     }
 }

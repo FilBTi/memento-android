@@ -6,10 +6,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.puroblast.domain_memento.model.Folder
 import com.puroblast.domain_memento.repository.FolderRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -27,7 +25,7 @@ class FoldersViewModel(
 
     private fun loadFolders() {
         viewModelScope.launch {
-            folderRepository.getFolders().flowOn(Dispatchers.IO).collect {
+            folderRepository.observeFolders().collect {
                 folders: List<Folder> ->
                 _state.update { folders }
             }

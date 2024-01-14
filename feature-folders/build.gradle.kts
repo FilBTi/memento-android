@@ -32,9 +32,6 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
 
     //ViewBinding region
     implementation(libs.viewbindingpropertydelegate.noreflection)
@@ -51,6 +48,11 @@ dependencies {
 
     //Dagger region
     implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
     //Dagger endregion
+
+    kapt(libs.dagger.compiler)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }

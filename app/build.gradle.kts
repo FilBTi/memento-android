@@ -42,32 +42,34 @@ android {
 }
 
 dependencies {
+    implementation(project(":common-resources"))
     implementation(project(":domain-memento"))
     implementation(project(":feature-auth"))
-    implementation(project(":common-resources"))
     implementation(project(":feature-folders"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
 
     //Dagger region
     implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
     //Dagger endregion
 
     //Room region
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.common)
-    kapt("androidx.room:room-compiler:2.6.1")
     //Room endregion
 
     //Navigation region
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     //Navigation endregion
+
+    kapt(libs.dagger.compiler)
+    kapt(libs.androidx.room.compiler)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }

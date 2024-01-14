@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.puroblast.domain_memento.model.Folder
 import kotlinx.coroutines.flow.Flow
 
@@ -20,8 +21,8 @@ interface FolderDao {
     @Query("SELECT * FROM folder WHERE id = :id")
     suspend fun getFolder(id: Int): Folder
 
-    @Query("UPDATE folder SET notesIds = :notesIds WHERE id=:id")
-    suspend fun updateFolderNotes(id: Int, notesIds: List<Int>)
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateFolderNotes(folder: Folder)
 
     @Query("SELECT * FROM folder")
     fun getFolders(): Flow<List<Folder>>

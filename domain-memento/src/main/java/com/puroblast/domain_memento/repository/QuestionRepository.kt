@@ -14,15 +14,15 @@ class QuestionRepository(private val questionDao: QuestionDao) {
         questionDao.deleteQuestion(question)
     }
 
-    suspend fun updateQuestion(id: Int, question: String, answer: String) {
-        questionDao.updateQuestion(id, question, answer)
+    suspend fun updateQuestion(question: Question) {
+        questionDao.updateQuestion(question)
     }
 
     suspend fun getQuestion(id: Int): Question {
         return questionDao.getQuestion(id)
     }
 
-    fun getNoteQuestions(ids: List<Int>): Flow<List<Question>> {
+    fun observeQuestions(ids: List<Int>): Flow<List<Question>> {
         return questionDao.getNoteQuestions(ids)
     }
 }

@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.puroblast.domain_memento.model.Note
 import kotlinx.coroutines.flow.Flow
 
@@ -20,8 +21,8 @@ interface NoteDao {
     @Query("SELECT * FROM note WHERE id = :id")
     suspend fun getNote(id: Int): Note
 
-    @Query("UPDATE note SET questionsIds = :questionsIds WHERE id = :id")
-    suspend fun updateNoteQuestions(id: Int, questionsIds: List<Int>)
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateNoteQuestions(note: Note)
 
     @Query("SELECT * FROM note WHERE id IN(:ids)")
     fun getNotes(ids: List<Int>): Flow<List<Note>>
