@@ -4,7 +4,9 @@
     android:layout_height="56dp"
     android:background="@color/gray"
     android:gravity="center"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:clickable="true"
+    android:longClickable="true">
 
     <ImageView
         android:id="@+id/folderImage"
@@ -24,7 +26,7 @@
     <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/arrow_right" />
 
 </LinearLayout>

@@ -12,14 +12,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.puroblast.domain_memento.model.Folder
 import com.puroblast.feature_folders.R
 import com.puroblast.feature_folders.databinding.FragmentHomeBinding
 import com.puroblast.feature_folders.di.FoldersComponentViewModel
 import com.puroblast.feature_folders.presentation.FoldersViewModel
 import com.puroblast.feature_folders.ui.recycler.FoldersAdapter
 import dagger.Lazy
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -57,7 +55,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         binding.addButton.setOnClickListener {
-            foldersViewModel.addFolder(Folder(0, "asdasd", emptyList()))
+            //foldersViewModel.addFolder(Folder(0, "asdasd", emptyList()))
+            val dialog = CreateFolderDialogFragment()
+            dialog.show(parentFragmentManager, "Create folder dialog")
         }
     }
 }

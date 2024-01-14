@@ -1,5 +1,6 @@
 package com.puroblast.feature_folders.di
 
+import com.puroblast.feature_folders.ui.CreateFolderDialogFragment
 import com.puroblast.feature_folders.ui.HomeFragment
 import dagger.Component
 
@@ -7,6 +8,8 @@ import dagger.Component
 internal interface FoldersComponent {
 
     fun inject(fragment: HomeFragment)
+
+    fun inject(fragment: CreateFolderDialogFragment)
 
     @Component.Builder
     interface Builder {
