@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.puroblast.domain_memento.model.Folder
 import com.puroblast.domain_memento.repository.FolderRepository
+import com.puroblast.feature_folders.ui.recycler.FolderItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -16,7 +17,7 @@ class FoldersViewModel(
     private val folderRepository: FolderRepository
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(emptyList<Folder>())
+    private val _state = MutableStateFlow(emptyList<FolderItem>())
     val state = _state.asStateFlow()
 
     init {
@@ -27,7 +28,8 @@ class FoldersViewModel(
         viewModelScope.launch {
             folderRepository.observeFolders().collect {
                 folders: List<Folder> ->
-                _state.update { folders }
+                val folderItems = folders.map { FolderItem(it.name) }
+                _state.update { folderItems }
             }
         }
     }

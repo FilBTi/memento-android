@@ -50,6 +50,12 @@ dependencies {
     implementation(libs.dagger)
     //Dagger endregion
 
+    //FastAdapter region
+    implementation(libs.com.mikepenz.fastadapter)
+    implementation(libs.fastadapter.extensions.diff)
+    implementation(libs.fastadapter.extensions.utils)
+    //FastAdapter endregion
+
     kapt(libs.dagger.compiler)
 
     testImplementation(libs.junit)

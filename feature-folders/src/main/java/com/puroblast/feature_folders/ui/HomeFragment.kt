@@ -12,11 +12,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.mikepenz.fastadapter.adapters.FastItemAdapter
+import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
 import com.puroblast.feature_folders.R
 import com.puroblast.feature_folders.databinding.FragmentHomeBinding
 import com.puroblast.feature_folders.di.FoldersComponentViewModel
 import com.puroblast.feature_folders.presentation.FoldersViewModel
-import com.puroblast.feature_folders.ui.recycler.FoldersAdapter
+import com.puroblast.feature_folders.ui.recycler.FolderItem
 import dagger.Lazy
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -40,22 +42,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = FoldersAdapter()
+        val folderItemAdapter = FastItemAdapter<FolderItem>()
 
         binding.foldersRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.foldersRecyclerView.adapter = adapter
+        binding.foldersRecyclerView.adapter = folderItemAdapter
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 foldersViewModel.state.collect {
                     state ->
-                    adapter.submitList(state)
+                    val result = FastAdapterDiffUtil.calculateDiff(folderItemAdapter.itemAdapter, state)
+                    FastAdapterDiffUtil[folderItemAdapter.itemAdapter] = result
                 }
             }
         }
 
         binding.addButton.setOnClickListener {
-            //foldersViewModel.addFolder(Folder(0, "asdasd", emptyList()))
             val dialog = CreateFolderDialogFragment()
             dialog.show(parentFragmentManager, "Create folder dialog")
         }
