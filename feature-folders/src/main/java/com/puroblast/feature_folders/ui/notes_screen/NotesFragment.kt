@@ -43,8 +43,8 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val folderId = arguments!!.getInt("folderId")
-        binding.notesToolbar.title = arguments?.getString("folderName")
+        val folderId = requireArguments().getInt("folderId")
+        binding.notesToolbar.title = requireArguments().getString("folderName")
 
         notesViewModel.loadNotes(folderId)
 

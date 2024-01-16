@@ -30,16 +30,14 @@
 
     </androidx.recyclerview.widget.RecyclerView>
     
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="bottom|end"
-        android:text="@string/create_text"
-        app:icon="@drawable/add_icon"
+        app:srcCompat = "@drawable/add_icon"
         android:backgroundTint="@color/blue"
-        android:textColor="@color/white"
-        app:iconTint="@color/white"/>
+        app:tint="@color/white"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
