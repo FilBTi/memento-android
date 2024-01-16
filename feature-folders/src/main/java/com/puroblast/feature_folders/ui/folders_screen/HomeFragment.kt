@@ -1,7 +1,8 @@
-package com.puroblast.feature_folders.ui
+package com.puroblast.feature_folders.ui.folders_screen
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,11 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.mikepenz.fastadapter.adapters.FastItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
+import com.mikepenz.fastadapter.select.selectExtension
 import com.puroblast.feature_folders.R
 import com.puroblast.feature_folders.databinding.FragmentHomeBinding
 import com.puroblast.feature_folders.di.FoldersComponentViewModel
 import com.puroblast.feature_folders.presentation.FoldersViewModel
-import com.puroblast.feature_folders.ui.recycler.FolderItem
+import com.puroblast.feature_folders.ui.folders_screen.recycler.FolderItem
 import dagger.Lazy
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -43,6 +45,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
 
         val folderItemAdapter = FastItemAdapter<FolderItem>()
+        folderItemAdapter.selectExtension {
+            isSelectable = true
+            multiSelect = true
+            selectOnLongClick = true
+        }
+
+//        folderItemAdapter.onClickListener = { view , adapter , item, position ->
+//            findNavController().navigate(R.id.action_foldersFragment_to_notesFragment)
+//            false
+//        }
+
+        folderItemAdapter.onLongClickListener = { view , adapter , item, position ->
+            Log.d("TAG", "onViewCreated: ${item.folderName} was clicked")
+            false
+        }
 
         binding.foldersRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.foldersRecyclerView.adapter = folderItemAdapter

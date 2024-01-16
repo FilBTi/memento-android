@@ -1,7 +1,7 @@
 package com.puroblast.feature_folders.di
 
-import com.puroblast.feature_folders.ui.CreateFolderDialogFragment
-import com.puroblast.feature_folders.ui.HomeFragment
+import com.puroblast.feature_folders.ui.folders_screen.CreateFolderDialogFragment
+import com.puroblast.feature_folders.ui.folders_screen.HomeFragment
 import dagger.Component
 
 @Component(dependencies = [FoldersDependencies::class])

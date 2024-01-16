@@ -1,4 +1,4 @@
-package com.puroblast.feature_folders.ui
+package com.puroblast.feature_folders.ui.folders_screen
 
 import android.app.Dialog
 import android.content.Context

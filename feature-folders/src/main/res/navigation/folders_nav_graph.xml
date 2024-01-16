@@ -2,15 +2,25 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/folders_nav_graph">
+    android:id="@+id/folders_nav_graph"
+    app:startDestination="@id/notesFragment">
 
     <fragment
         android:id="@+id/foldersHomeFragment"
-        android:name="com.puroblast.feature_folders.ui.HomeFragment"
+        android:name="com.puroblast.feature_folders.ui.folders_screen.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <deepLink app:uri="android-app://com.puroblast.feature_folders/homeFragment"/>
+        <action
+            android:id="@+id/action_foldersFragment_to_notesFragment"
+            app:destination="@id/notesFragment"/>
 
     </fragment>
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.puroblast.feature_folders.ui.notes_screen.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" />
 
 </navigation>

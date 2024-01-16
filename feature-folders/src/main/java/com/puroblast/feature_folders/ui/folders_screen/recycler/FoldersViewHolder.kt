@@ -1,4 +1,4 @@
-package com.puroblast.feature_folders.ui.recycler
+package com.puroblast.feature_folders.ui.folders_screen.recycler
 
 import android.view.View
 import by.kirich1409.viewbindingdelegate.viewBinding

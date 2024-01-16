@@ -1,4 +1,4 @@
-package com.puroblast.feature_folders.ui.recycler
+package com.puroblast.feature_folders.ui.folders_screen.recycler
 
 import androidx.recyclerview.widget.DiffUtil
 import com.puroblast.domain_memento.model.Folder
