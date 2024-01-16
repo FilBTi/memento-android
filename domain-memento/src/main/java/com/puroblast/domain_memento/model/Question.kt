@@ -9,5 +9,6 @@ data class Question(
     val id: Int,
     val name: String,
     val question: String,
-    val answer: String
+    val answer: String,
+    val noteId: Int
 )

@@ -22,7 +22,7 @@ interface FolderDao {
     suspend fun getFolder(id: Int): Folder
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateFolderNotes(folder: Folder)
+    suspend fun updateFolder(folder: Folder)
 
     @Query("SELECT * FROM folder")
     fun getFolders(): Flow<List<Folder>>

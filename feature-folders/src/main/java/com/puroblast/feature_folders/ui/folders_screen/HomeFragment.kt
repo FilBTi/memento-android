@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.mikepenz.fastadapter.adapters.FastItemAdapter
@@ -19,7 +21,7 @@ import com.mikepenz.fastadapter.select.selectExtension
 import com.puroblast.feature_folders.R
 import com.puroblast.feature_folders.databinding.FragmentHomeBinding
 import com.puroblast.feature_folders.di.FoldersComponentViewModel
-import com.puroblast.feature_folders.presentation.FoldersViewModel
+import com.puroblast.feature_folders.presentation.folders.FoldersViewModel
 import com.puroblast.feature_folders.ui.folders_screen.recycler.FolderItem
 import dagger.Lazy
 import kotlinx.coroutines.launch
@@ -51,12 +53,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             selectOnLongClick = true
         }
 
-//        folderItemAdapter.onClickListener = { view , adapter , item, position ->
-//            findNavController().navigate(R.id.action_foldersFragment_to_notesFragment)
-//            false
-//        }
+        folderItemAdapter.onClickListener = { view, adapter, item, position ->
+            val bundle = bundleOf()
+            bundle.putString("folderName", item.folderName)
+            bundle.putInt("folderId", item.id)
+            findNavController().navigate(R.id.action_foldersFragment_to_notesFragment, bundle)
+            false
+        }
 
-        folderItemAdapter.onLongClickListener = { view , adapter , item, position ->
+        folderItemAdapter.onLongClickListener = { view, adapter, item, position ->
             Log.d("TAG", "onViewCreated: ${item.folderName} was clicked")
             false
         }

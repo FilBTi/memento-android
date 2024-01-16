@@ -1,4 +1,4 @@
-package com.puroblast.feature_folders.presentation
+package com.puroblast.feature_folders.presentation.folders
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

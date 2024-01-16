@@ -18,8 +18,8 @@ class FolderRepository(private val folderDao: FolderDao) {
         return folderDao.getFolder(id)
     }
 
-    suspend fun updateFolderNotes(folder: Folder) {
-        folderDao.updateFolderNotes(folder)
+    suspend fun updateFolder(folder: Folder) {
+        folderDao.updateFolder(folder)
     }
 
     fun observeFolders(): Flow<List<Folder>> {

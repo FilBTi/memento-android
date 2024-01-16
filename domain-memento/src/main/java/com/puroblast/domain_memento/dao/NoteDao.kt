@@ -22,8 +22,8 @@ interface NoteDao {
     suspend fun getNote(id: Int): Note
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateNoteQuestions(note: Note)
+    suspend fun updateNote(note: Note)
 
-    @Query("SELECT * FROM note WHERE id IN(:ids)")
-    fun getNotes(ids: List<Int>): Flow<List<Note>>
+    @Query("SELECT * FROM note WHERE folderId = :folderId")
+    fun observeNotes(folderId: Int): Flow<List<Note>>
 }

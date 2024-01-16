@@ -1,4 +1,4 @@
-package com.puroblast.feature_folders.presentation
+package com.puroblast.feature_folders.presentation.folders
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -9,7 +9,6 @@ import com.puroblast.domain_memento.repository.FolderRepository
 import com.puroblast.feature_folders.ui.folders_screen.recycler.FolderItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
