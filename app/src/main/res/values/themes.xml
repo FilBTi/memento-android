@@ -5,6 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="toolbarStyle">@style/QuestionDetailsToolBarStyle</item>
     </style>
 
     <style name="Theme.Memento" parent="Base.Theme.Memento" />

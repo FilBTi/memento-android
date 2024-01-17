@@ -23,4 +23,12 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="QuestionDetailsToolBarStyle" parent="@style/Widget.Material3.Toolbar">
+        <item name="materialThemeOverlay">@style/ToolbarThemeOverlay</item>
+    </style>
+    <style name="ToolbarThemeOverlay" parent="">
+        <item name="actionMenuTextAppearance">@style/SubtitleStyle</item>
+        <item name="actionMenuTextColor">@color/blue</item>
+    </style>
+
 </resources>

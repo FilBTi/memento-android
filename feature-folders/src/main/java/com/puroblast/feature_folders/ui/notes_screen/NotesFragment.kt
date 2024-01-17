@@ -3,6 +3,7 @@ package com.puroblast.feature_folders.ui.notes_screen
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.mikepenz.fastadapter.adapters.FastItemAdapter
@@ -71,6 +73,18 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
         binding.addButton.setOnClickListener {
             val dialog = CreateNoteDialogFragment(folderId)
             dialog.show(parentFragmentManager, "Create folder dialog")
+        }
+
+        binding.notesToolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+
+        noteItemAdapter.onClickListener = { view, adapter, item, position ->
+            val bundle = bundleOf()
+            bundle.putInt("noteId", item.id)
+            bundle.putString("noteName", item.noteName)
+            findNavController().navigate(R.id.action_notesFragment_to_questionsFragment, bundle)
+            true
         }
     }
 }

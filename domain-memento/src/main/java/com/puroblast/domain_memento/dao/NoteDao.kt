@@ -25,5 +25,5 @@ interface NoteDao {
     suspend fun updateNote(note: Note)
 
     @Query("SELECT * FROM note WHERE folderId = :folderId")
-    fun observeNotes(folderId: Int): Flow<List<Note>>
+    fun getNotes(folderId: Int): Flow<List<Note>>
 }

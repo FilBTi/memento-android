@@ -21,6 +21,24 @@
         android:id="@+id/notesFragment"
         android:name="com.puroblast.feature_folders.ui.notes_screen.NotesFragment"
         android:label="fragment_notes"
-        tools:layout="@layout/fragment_notes" />
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_questionsFragment"
+            app:destination="@id/questionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionDetailsFragment"
+        android:name="com.puroblast.feature_folders.ui.questions_screen.QuestionDetailsFragment"
+        android:label="fragment_question_details"
+        tools:layout="@layout/fragment_question_details" />
+    <fragment
+        android:id="@+id/questionsFragment"
+        android:name="com.puroblast.feature_folders.ui.questions_screen.QuestionsFragment"
+        android:label="fragment_questions"
+        tools:layout="@layout/fragment_questions" >
+        <action
+            android:id="@+id/action_questionsFragment_to_questionDetailsFragment"
+            app:destination="@id/questionDetailsFragment" />
+    </fragment>
 
 </navigation>

@@ -19,7 +19,7 @@ class NoteRepository(private val noteDao: NoteDao) {
     }
 
     fun observeNotes(folderId: Int): Flow<List<Note>> {
-        return noteDao.observeNotes(folderId)
+        return noteDao.getNotes(folderId)
     }
 
     suspend fun deleteNote(note: Note) {
