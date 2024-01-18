@@ -19,6 +19,16 @@ class QuestionDetailsViewModel(
         }
     }
 
+    fun updateQuestion(question: Question) {
+        viewModelScope.launch {
+            questionRepository.updateQuestion(question)
+        }
+    }
+
+    suspend fun loadQuestion(id: Int): Question {
+        return questionRepository.getQuestion(id)
+    }
+
     class Factory @Inject constructor(
         private val questionRepository: QuestionRepository
     ) : ViewModelProvider.Factory {

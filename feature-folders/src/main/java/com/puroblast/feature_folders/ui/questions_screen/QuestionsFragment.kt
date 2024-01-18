@@ -72,7 +72,17 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
         binding.addButton.setOnClickListener {
             val bundle = bundleOf()
             bundle.putInt("noteId", noteId)
+            bundle.putBoolean("isExist", false)
             findNavController().navigate(R.id.action_questionsFragment_to_questionDetailsFragment, bundle)
+        }
+
+        questionItemAdapter.onClickListener = { view, adapter, item, position ->
+            val bundle = bundleOf()
+            bundle.putInt("noteId", noteId)
+            bundle.putInt("questionId", item.id)
+            bundle.putBoolean("isExist", true)
+            findNavController().navigate(R.id.action_questionsFragment_to_questionDetailsFragment, bundle)
+            true
         }
 
         binding.questionsToolbar.setNavigationOnClickListener {

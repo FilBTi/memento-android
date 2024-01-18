@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginBottom="6dp"
+            android:layout_marginBottom="10dp"
             app:srcCompat = "@drawable/add_icon"
             android:backgroundTint="@color/blue"
             app:tint="@color/white"/>
@@ -53,7 +53,8 @@
             android:layout_height="wrap_content"
             android:text="@string/start_repeat_fab_text"
             android:backgroundTint="@color/blue"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
 
