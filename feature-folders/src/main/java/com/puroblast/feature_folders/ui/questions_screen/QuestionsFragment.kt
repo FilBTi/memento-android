@@ -88,5 +88,11 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
         binding.questionsToolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
+
+        binding.startRepeatButton.setOnClickListener {
+            val bundle = bundleOf()
+            bundle.putInt("noteId", noteId)
+            findNavController().navigate(R.id.action_questionsFragment_to_repeatQuestionsFragment, bundle)
+        }
     }
 }

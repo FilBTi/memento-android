@@ -39,6 +39,15 @@
         <action
             android:id="@+id/action_questionsFragment_to_questionDetailsFragment"
             app:destination="@id/questionDetailsFragment" />
+        <action
+            android:id="@+id/action_questionsFragment_to_repeatQuestionsFragment"
+            app:destination="@id/repeatQuestionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repeatQuestionsFragment"
+        android:name="com.puroblast.feature_folders.ui.questions_screen.RepeatQuestionsFragment"
+        android:label="fragment_repeat_questions"
+        tools:layout="@layout/fragment_repeat_questions" >
     </fragment>
 
 </navigation>
