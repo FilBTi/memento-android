@@ -23,7 +23,6 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 class RepeatQuestionsFragment : Fragment(R.layout.fragment_repeat_questions) {
 
     private val binding by viewBinding(FragmentRepeatQuestionsBinding::bind)
@@ -46,14 +45,14 @@ class RepeatQuestionsFragment : Fragment(R.layout.fragment_repeat_questions) {
         val noteId = requireArguments().getInt("noteId")
 
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatQuestionsViewModel.loadQuestions(noteId).collectLatest { questions : List<Question> ->
+            repeatQuestionsViewModel.loadQuestions(noteId).collectLatest { questions: List<Question> ->
                 repeatQuestionsViewModel.updateScreen(questions, 0)
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                repeatQuestionsViewModel.state.collect {uiState ->
+                repeatQuestionsViewModel.state.collect { uiState ->
                     if (uiState.questions.isNotEmpty()) {
                         val currentQuestionIndex = uiState.currentQuestionId
                         binding.questionTextView.text = uiState.questions[currentQuestionIndex].question
@@ -116,7 +115,6 @@ class RepeatQuestionsFragment : Fragment(R.layout.fragment_repeat_questions) {
                             }
                         }
                     }
-
                 }
             }
         }
@@ -124,7 +122,5 @@ class RepeatQuestionsFragment : Fragment(R.layout.fragment_repeat_questions) {
         binding.repeatQuestionToolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
-
     }
-
 }

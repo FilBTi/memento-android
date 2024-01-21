@@ -4,7 +4,8 @@ import android.view.View
 import com.mikepenz.fastadapter.items.AbstractItem
 import com.puroblast.feature_folders.R
 
-class QuestionItem(
+@Suppress("DataClassShouldBeImmutable")
+data class QuestionItem(
     val id: Int,
     val name: String
 ) : AbstractItem<QuestionsViewHolder>() {
