@@ -22,6 +22,7 @@ import dagger.Lazy
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.puroblast.common_resources.R as CommonResourcesR
 
 class RepeatQuestionsFragment : Fragment(R.layout.fragment_repeat_questions) {
 
@@ -45,11 +46,32 @@ class RepeatQuestionsFragment : Fragment(R.layout.fragment_repeat_questions) {
         val noteId = requireArguments().getInt("noteId")
 
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatQuestionsViewModel.loadQuestions(noteId).collectLatest { questions: List<Question> ->
-                repeatQuestionsViewModel.updateScreen(questions, 0)
-            }
+            repeatQuestionsViewModel.loadQuestions(noteId)
+                .collectLatest { questions: List<Question> ->
+                    repeatQuestionsViewModel.updateScreen(questions, 0)
+                }
         }
 
+        render()
+
+        binding.repeatQuestionToolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun setupInputLayout(color: ColorStateList, errorText: String) {
+        binding.questionInput.boxStrokeWidth = 2
+        binding.questionInput.clearFocus()
+        binding.questionInput.isErrorEnabled = true
+        binding.questionEditText.isEnabled = false
+
+        binding.questionInput.error = errorText
+        binding.questionInput.setErrorIconTintList(color)
+        binding.questionInput.setErrorTextColor(color)
+        binding.questionInput.boxStrokeErrorColor = color
+    }
+
+    private fun render() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 repeatQuestionsViewModel.state.collect { uiState ->
@@ -60,25 +82,18 @@ class RepeatQuestionsFragment : Fragment(R.layout.fragment_repeat_questions) {
                         binding.progressIndicator.setProgress(uiState.currentQuestionId + 1, true)
 
                         if (uiState.isAnswered) {
-                            binding.questionInput.boxStrokeWidth = 2
-                            binding.questionInput.clearFocus()
-                            binding.questionInput.isErrorEnabled = true
-                            binding.questionEditText.isEnabled = false
                             if (uiState.isAnswerIsRight) {
-                                val greenColor = ColorStateList.valueOf(resources.getColor(
-                                    com.puroblast.common_resources.R.color.green))
-                                binding.questionInput.error = "Правильный ответ"
-                                binding.questionInput.setErrorIconTintList(greenColor)
-                                binding.questionInput.setErrorTextColor(greenColor)
-                                binding.questionInput.boxStrokeErrorColor = greenColor
+                                val greenColor = ColorStateList.valueOf(
+                                    resources.getColor(CommonResourcesR.color.green)
+                                )
+                                setupInputLayout(greenColor, "Правильный ответ")
                             } else {
-                                val redColor = ColorStateList.valueOf(resources.getColor(
-                                    com.puroblast.common_resources.R.color.red))
-                                binding.questionInput.error = "Неверный ответ"
-                                binding.questionInput.setErrorIconTintList(redColor)
-                                binding.questionInput.setErrorTextColor(redColor)
-                                binding.questionInput.boxStrokeErrorColor = redColor
-                                binding.rightAnswerTextView.text = uiState.questions[currentQuestionIndex].answer
+                                val redColor = ColorStateList.valueOf(
+                                    resources.getColor(CommonResourcesR.color.red)
+                                )
+                                setupInputLayout(redColor, "Неверный ответ")
+                                binding.rightAnswerTextView.text =
+                                    uiState.questions[currentQuestionIndex].answer
                                 binding.rightAnswerCardView.visibility = View.VISIBLE
                             }
                         }
@@ -99,28 +114,22 @@ class RepeatQuestionsFragment : Fragment(R.layout.fragment_repeat_questions) {
                                     )
                                 }
                             } else {
+                                val rightAnswer = uiState.questions[currentQuestionIndex].answer
+                                val userAnswer = binding.questionEditText.text.toString()
                                 if (uiState.isLastQuestion) {
                                     binding.confirmButton.text = "Закончить повторение"
-                                    repeatQuestionsViewModel.updateScreen(
-                                        isAnswered = true,
-                                        isAnswerIsRight = (binding.questionEditText.text.toString() == uiState.questions[currentQuestionIndex].answer)
-                                    )
                                 } else {
                                     binding.confirmButton.text = "Следующий вопрос"
-                                    repeatQuestionsViewModel.updateScreen(
-                                        isAnswered = true,
-                                        isAnswerIsRight = (binding.questionEditText.text.toString() == uiState.questions[currentQuestionIndex].answer)
-                                    )
                                 }
+                                repeatQuestionsViewModel.updateScreen(
+                                    isAnswered = true,
+                                    isAnswerIsRight = (userAnswer == rightAnswer)
+                                )
                             }
                         }
                     }
                 }
             }
-        }
-
-        binding.repeatQuestionToolbar.setNavigationOnClickListener {
-            findNavController().popBackStack()
         }
     }
 }

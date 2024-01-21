@@ -20,6 +20,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu"
         app:itemActiveIndicatorStyle="@android:color/transparent"

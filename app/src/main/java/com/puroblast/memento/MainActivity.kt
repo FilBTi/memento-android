@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import androidx.transition.Visibility
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.memento.databinding.ActivityMainBinding
 
@@ -17,10 +16,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        NavigationUI.setupWithNavController(binding.bottomNavigationView , findNavController(R.id.appFragmentContainerView))
+        NavigationUI.setupWithNavController(
+            binding.bottomNavigationView,
+            findNavController(R.id.appFragmentContainerView)
+        )
 
         findNavController(R.id.appFragmentContainerView).addOnDestinationChangedListener {
-                _ , destination , _ ->
+                _, destination, _ ->
             if (destination.id in listOf(
                     com.puroblast.feature_folders.R.id.questionDetailsFragment,
                     com.puroblast.feature_folders.R.id.repeatQuestionsFragment,

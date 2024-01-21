@@ -11,7 +11,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private val binding by viewBinding(FragmentProfileBinding::bind)
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
