@@ -5,4 +5,8 @@
         android:id="@+id/folders_nav_graph"
         android:title="Главная"
         android:icon="@drawable/home_icon"/>
+    <item
+        android:id="@+id/profile_nav_graph"
+        android:title="Профиль"
+        android:icon="@drawable/profile_icon"/>
 </menu>

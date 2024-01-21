@@ -6,5 +6,6 @@
 
     <include app:graph="@navigation/auth_nav_graph"/>
     <include app:graph="@navigation/folders_nav_graph"/>
+    <include app:graph="@navigation/profile_nav_graph"/>
 
 </navigation>

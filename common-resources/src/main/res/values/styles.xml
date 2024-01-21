@@ -12,4 +12,9 @@
     <style name="textInputLayout_custom_theme" parent="">
         <item name="colorPrimary">@color/black</item>
     </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

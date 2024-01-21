@@ -7,4 +7,5 @@
     <color name="red">#FF3B30</color>
     <color name="green">#32D74B</color>
     <color name="rightAnswerColor">#3C3C4399</color>
+    <color name="navigationItemColor">#3C3C434D</color>
 </resources>
