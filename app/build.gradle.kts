@@ -52,6 +52,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.constraintlayout)
 
+    //ViewBinding region
+    implementation(libs.viewbindingpropertydelegate.noreflection)
+    //ViewBinding endregion
+
     //Dagger region
     implementation(libs.dagger)
     //Dagger endregion
