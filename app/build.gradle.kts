@@ -42,21 +42,23 @@ android {
 }
 
 dependencies {
+    implementation(project(":common-resources"))
     implementation(project(":domain-memento"))
     implementation(project(":feature-auth"))
-    implementation(project(":common-resources"))
+    implementation(project(":feature-folders"))
+    implementation(project(":feature-profile"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+
+    //ViewBinding region
+    implementation(libs.viewbindingpropertydelegate.noreflection)
+    //ViewBinding endregion
 
     //Dagger region
     implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
     //Dagger endregion
 
     //Room region
@@ -68,4 +70,11 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     //Navigation endregion
+
+    kapt(libs.dagger.compiler)
+    kapt(libs.androidx.room.compiler)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }

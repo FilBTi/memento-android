@@ -1,0 +1,9 @@
+<resources>
+    <string name="create_text">Создать</string>
+    <string name="create_new_folder_text">Создать новую папку</string>
+    <string name="create_new_note_text">Создать новый конспект</string>
+    <string name="cancel_text">Отмена</string>
+    <string name="home_toolbar_title_text">Главная</string>
+    <string name="new_note_hint">Новый конспект</string>
+    <string name="start_repeat_fab_text">Начать повторение</string>
+</resources>

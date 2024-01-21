@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyThemeOverlay.MaterialComponents.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/SubtitleStyle</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+
+    <style name="PositiveButtonStyle" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="SubtitleStyle" parent="@style/MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="QuestionDetailsToolBarStyle" parent="@style/Widget.Material3.Toolbar">
+        <item name="materialThemeOverlay">@style/ToolbarThemeOverlay</item>
+    </style>
+    <style name="ToolbarThemeOverlay" parent="">
+        <item name="actionMenuTextAppearance">@style/SubtitleStyle</item>
+        <item name="actionMenuTextColor">@color/blue</item>
+    </style>
+
+</resources>

@@ -8,6 +8,4 @@ data class Folder(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val childFoldersIds: List<Int>,
-    val notesIds: List<Int>
 )

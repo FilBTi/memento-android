@@ -8,5 +8,5 @@ data class Note(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val questionsIds: List<Int>
+    val folderId: Int
 )

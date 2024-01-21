@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/folders_nav_graph"
+        android:title="Главная"
+        android:icon="@drawable/home_icon"/>
+    <item
+        android:id="@+id/profile_nav_graph"
+        android:title="Профиль"
+        android:icon="@drawable/profile_icon"/>
+</menu>

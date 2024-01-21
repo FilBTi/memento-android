@@ -12,6 +12,7 @@ detekt = "1.22.0"
 dagger = "2.50"
 daggerCompiler = "2.50"
 jetbrainsKotlinJvm = "1.9.22"
+mikepenzFastadapter = "5.7.0"
 roomRuntime = "2.6.1"
 kotlinx-coroutines-android = "1.7.1"
 kotlinx-coroutines-core = "1.7.1"
@@ -21,7 +22,10 @@ navigation-fragment-ktx = "2.7.6"
 
 [libraries]
 androidx-room-common = { module = "androidx.room:room-common", version.ref = "roomRuntime" }
+com-mikepenz-fastadapter = { module = "com.mikepenz:fastadapter", version.ref = "mikepenzFastadapter" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+fastadapter-extensions-diff = { module = "com.mikepenz:fastadapter-extensions-diff", version.ref = "mikepenzFastadapter" }
+fastadapter-extensions-utils = { module = "com.mikepenz:fastadapter-extensions-utils", version.ref = "mikepenzFastadapter" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
@@ -38,6 +42,7 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 viewbindingpropertydelegate-noreflection = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "viewbindingpropertydelegate-noreflection" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-fragment-ktx" }
+androidx-room-compiler = {module = "androidx.room:room-compiler" , version.ref = "roomKtx"}
 
 
 [plugins]

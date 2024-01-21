@@ -1,30 +1,18 @@
 package com.puroblast.memento.di
 
-import android.content.Context
-import androidx.room.Room
 import com.puroblast.domain_memento.dao.FolderDao
 import com.puroblast.domain_memento.dao.NoteDao
 import com.puroblast.domain_memento.dao.QuestionDao
 import com.puroblast.domain_memento.repository.FolderRepository
 import com.puroblast.domain_memento.repository.NoteRepository
 import com.puroblast.domain_memento.repository.QuestionRepository
-import com.puroblast.memento.MementoDatabase
+import com.puroblast.memento.db.MementoDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [DatabaseModule::class])
 class AppModule {
-
-    @Provides
-    @Singleton
-    fun provideMementoDatabase(context: Context): MementoDatabase {
-        return Room.databaseBuilder(
-            context.applicationContext,
-            MementoDatabase::class.java,
-            "memento_db"
-        ).build()
-    }
 
     @Provides
     @Singleton

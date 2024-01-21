@@ -1,13 +1,14 @@
 package com.puroblast.memento.di
 
 import android.app.Application
+import com.puroblast.feature_folders.di.FoldersDependencies
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component
-interface AppComponent {
+@Component(modules = [AppModule::class])
+interface AppComponent : FoldersDependencies {
 
     @Component.Builder
     interface Builder {
